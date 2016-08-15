@@ -40,7 +40,7 @@
 	 
 		client.on('connect', function () {
 		  console.log("connect");
-		  client.subscribe("/V0224079");
+		  client.subscribe("/1");
 		});
 		<!--會通過Server-->
 		client.on('message', function (topic, message) {
@@ -53,13 +53,13 @@
 		<!--不會通過Server-->
 		function on()
 		{
-			client.publish('/V0224079', '1');
+			client.publish('/1', '1');
 			$('#status').css('color', 'green');
 			console.log("1");
 		}
 		function off()
 		{
-			client.publish('/V0224079', '0');
+			client.publish('/1', '0');
 			$('#status').css('color', 'red');
 			console.log("0");
 		}
