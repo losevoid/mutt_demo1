@@ -49,14 +49,7 @@
 		  console.log("connect");
 		  client.subscribe("/nuu/csie/pos");
 		});
-	  cnt.query("INSERT INTO student (name,msg,topic)VALUES (value2,value3,value2);", log, function(err, result) {
-      if (err) {
-        return cnt.rollback(function() {
-          throw err;
-        });
-      } 
-	  
-	  cnt.end();
+
 		<!--會通過Server-->
 		client.on('message', function (topic, message) {
 		  var payload = message.toString();
@@ -71,6 +64,14 @@
 			client.publish('/nuu/csie/pos', '1');
 			$('#status').css('color', 'green');
 			console.log("1");
+				  cnt.query("INSERT INTO student (name,msg,topic)VALUES (value2,value3,value2);", log, function(err, result) {
+         if (err) {
+          return cnt.rollback(function() {
+          throw err;
+        });
+      } 
+	  
+	  cnt.end();
 		}
 		function off()
 		{
