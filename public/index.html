@@ -35,7 +35,7 @@
 			  password : 'student',
 			  database : 'student'
 			});
-		connection.connect();
+		cnt.connect();
 		var qrcode = new QRCode("qrcode", {
 								text: "http://topweb-cycweb.rhcloud.com/",
 								width: 128,
@@ -49,13 +49,13 @@
 		  console.log("connect");
 		  client.subscribe("/nuu/csie/pos");
 		});
-		connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+		cnt.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
   if (err) throw err;
  
   console.log('The solution is: ', rows[0].solution);
 });
  
-connection.end();
+cnt.end();
 		<!--會通過Server-->
 		client.on('message', function (topic, message) {
 		  var payload = message.toString();
